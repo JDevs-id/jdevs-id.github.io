@@ -1,291 +1,637 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="application-name" content="{{ config('app.name') }}" />
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>This is me | JDevs-ID</title>
-    <!-- Favicon -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://avatars.githubusercontent.com/u/57583609"
-    />
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const text =
-          "Life as Muslim | Tech Enthusiast | Fullstack Developer | System & Data Analyst | DevOps Engineer";
-        const typewriterElement = document.getElementById("typewriter");
-        let index = 0;
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tri Jaya Prasetya - Fullstack System Developer, System Analyst, Server Engineer, and IT Infrastructure Specialist based in Pekalongan, Indonesia." />
+  <meta name="author" content="Tri Jaya Prasetya" />
+  <meta property="og:title" content="Tri Jaya Prasetya | Developer, System Analyst & Server Engineer" />
+  <meta property="og:description" content="Portfolio profile of Tri Jaya Prasetya, S.Kom. Fullstack developer, system analyst, server engineer, and IT infrastructure specialist." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/57583609" />
+  <meta name="theme-color" content="#020617" />
+  <title>Tri Jaya Prasetya | JDevs-ID</title>
 
-        function type() {
-          if (index < text.length) {
-            typewriterElement.textContent += text.charAt(index);
-            index++;
-            setTimeout(type, 100); // Adjust typing speed here (in milliseconds)
-          }
-        }
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/57583609" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        type(); // Start typing
-      });
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          },
+          boxShadow: {
+            glow: '0 0 45px rgba(56, 189, 248, .18)',
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            pulseSoft: 'pulseSoft 2.8s ease-in-out infinite',
+            gradient: 'gradient 12s ease infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-14px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: '.55' },
+              '50%': { opacity: '1' },
+            },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+          },
+        },
+      },
+    };
+  </script>
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const mobileMenuButton = document.querySelector("#mobile-menu-button");
-        const closeMenuButton = document.querySelector("#close-menu-button");
-        const mainContent = document.getElementById("main-content");
-        const backdrop = document.getElementById("backdrop");
-        const mobileMenu = document.getElementById("mobile-menu");
+  <style>
+    :root { color-scheme: dark; }
 
-        mobileMenuButton.addEventListener("click", () => {
-          mobileMenu.classList.remove("hidden"); // Show the menu
-          backdrop.classList.remove("hidden"); // Show the backdrop
-          mainContent.classList.add("blur"); // Apply blur to main content
-        });
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.30), transparent 32%),
+        radial-gradient(circle at 85% 12%, rgba(34, 211, 238, 0.15), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.28), transparent 34%),
+        linear-gradient(135deg, #020617, #0f172a 48%, #111827);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        closeMenuButton.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden"); // Hide the menu
-          backdrop.classList.add("hidden"); // Hide the backdrop
-          mainContent.classList.remove("blur"); // Remove blur from main content
-        });
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
 
-        backdrop.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden"); // Hide the menu
-          backdrop.classList.add("hidden"); // Hide the backdrop
-          mainContent.classList.remove("blur"); // Remove blur from main content
-        });
-      });
-    </script>
-  </head>
+    .glass-strong {
+      background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.06));
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      border: 1px solid rgba(255,255,255,.17);
+    }
 
-  <body class="antialiased h-screen overflow-y-auto">
-    <div class="bg-white">
-      <header class="absolute inset-x-0 top-0 z-50">
-        <nav
-          class="flex items-center justify-between p-6 lg:px-8"
-          aria-label="Global"
-        >
-          <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
-              <span class="sr-only">Tri Jaya Prasetya</span>
-              <img
-                class="h-8 w-auto rounded-full"
-                src="https://avatars.githubusercontent.com/u/57583609"
-                alt=""
-              />
-            </a>
-          </div>
-          <div class="flex lg:hidden">
-            <button
-              id="mobile-menu-button"
-              type="button"
-              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            >
-              <span class="sr-only">Open main menu</span>
-              <svg
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            </button>
-          </div>
-          <!-- <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Articles</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Galleries</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Projects</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Portfolio</a>
-                </div> -->
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="https://github.com/JDevs-id"
-              target="_blank"
-              class="text-sm font-semibold leading-6 text-gray-900"
-              >go on my github <span aria-hidden="true">&rarr;</span></a
-            >
-          </div>
-        </nav>
-        <!-- Mobile menu, show/hide based on menu open state. -->
-        <div
-          id="mobile-menu"
-          class="lg:hidden hidden"
-          role="dialog"
-          aria-modal="true"
-        >
-          <!-- Background backdrop, show/hide based on slide-over state. -->
-          <div
-            id="backdrop"
-            class="fixed inset-0 z-50 hidden bg-black opacity-50"
-          ></div>
-          <div
-            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white bg-opacity-50 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
-          >
-            <div class="flex items-center justify-between">
-              <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Tri Jaya Prasetya</span>
-                <img
-                  class="h-8 w-auto rounded-full"
-                  src="https://lh3.googleusercontent.com/a/ACg8ocIJi9HmNv1MEE8g6fSsV0Ir9Y3sLfbX2XuZdcrll1cLhMph4-Jf=s288-c-no"
-                  alt=""
-                />
-              </a>
-              <button
-                id="close-menu-button"
-                type="button"
-                class="-m-2.5 rounded-md p-2.5 text-gray-700"
-              >
-                <span class="sr-only">Close menu</span>
-                <svg
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="mt-6 flow-root">
-              <div class="-my-6 divide-y divide-gray-500/10">
-                <!-- <div class="space-y-2 py-6">
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Articles</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Galleries</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Projects</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Portfolio</a>
-                            </div> -->
-                <div class="py-6">
-                  <a
-                    href="https://github.com/JDevs-id"
-                    target="_blank"
-                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >go on my github <span aria-hidden="true">&rarr;</span></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+    .text-gradient {
+      background: linear-gradient(90deg, #67e8f9, #60a5fa, #c084fc, #f0abfc);
+      background-size: 220% 220%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradient 12s ease infinite;
+    }
+
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 28px;
+      bottom: -28px;
+      width: 1px;
+      background: rgba(255,255,255,.16);
+    }
+
+    .timeline-line:last-child::before { display: none; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tri Jaya Prasetya",
+    "jobTitle": "Fullstack System Developer, System Analyst, Server Engineer",
+    "url": "https://jdevs-id.github.io",
+    "image": "https://avatars.githubusercontent.com/u/57583609",
+    "email": "mailto:trijaya.prasetya@gmail.com",
+    "telephone": "+628999711600",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pekalongan",
+      "addressRegion": "Central Java",
+      "addressCountry": "Indonesia"
+    },
+    "sameAs": [
+      "https://github.com/JDevs-id",
+      "https://www.linkedin.com/in/tri-jaya-prasetya/",
+      "https://stackoverflow.com/users/12355722/jdevs-id"
+    ]
+  }
+  </script>
+</head>
+
+<body class="font-sans text-white antialiased selection:bg-cyan-400/30 selection:text-white">
+  <div class="fixed inset-0 -z-10 grid-pattern opacity-40"></div>
+  <div class="pointer-events-none fixed left-[-90px] top-[-90px] -z-10 h-80 w-80 rounded-full bg-blue-500/25 blur-3xl"></div>
+  <div class="pointer-events-none fixed bottom-[-110px] right-[-90px] -z-10 h-96 w-96 rounded-full bg-purple-500/25 blur-3xl"></div>
+  <div class="pointer-events-none fixed left-1/2 top-1/3 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl"></div>
+
+  <!-- Header -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/45 backdrop-blur-2xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8" aria-label="Main Navigation">
+      <a href="#home" class="flex items-center gap-3">
+        <img src="https://avatars.githubusercontent.com/u/57583609" alt="Tri Jaya Prasetya avatar" class="h-10 w-10 rounded-2xl border border-white/15 object-cover shadow-glow" />
+        <div class="leading-tight">
+          <p class="text-sm font-bold tracking-wide">JDevs-ID</p>
+          <p class="text-xs text-slate-400">Tri Jaya Prasetya</p>
         </div>
-      </header>
+      </a>
 
-      <div class="relative isolate px-6 pt-14 lg:px-8" id="main-content">
-        <div
-          class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-          aria-hidden="true"
-        >
-          <div
-            class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3498db] to-[#9089fc] opacity-50 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-            style="
-              clip-path: polygon(
-                74.1% 44.1%,
-                100% 61.6%,
-                97.5% 26.9%,
-                85.5% 0.1%,
-                80.7% 2%,
-                72.5% 32.5%,
-                60.2% 62.4%,
-                52.4% 68.1%,
-                47.5% 58.3%,
-                45.2% 34.5%,
-                27.5% 76.7%,
-                0.1% 64.9%,
-                17.9% 100%,
-                27.6% 76.8%,
-                76.1% 97.7%,
-                74.1% 44.1%
-              );
-            "
-          ></div>
-        </div>
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div class="flex justify-center mb-4">
-            <div
-              class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-            >
-              <a href="#" class="font-semibold text-indigo-600">
-                <span class="absolute inset-0" aria-hidden="true"></span>This is
-                me,
-              </a>
-            </div>
-          </div>
-          <div class="text-center">
-            <div class="flex lg:flex-1 justify-center">
-              <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Tri Jaya Prasetya</span>
-                <img
-                  class="h-48 w-auto rounded-full"
-                  src="https://lh3.googleusercontent.com/a/ACg8ocIJi9HmNv1MEE8g6fSsV0Ir9Y3sLfbX2XuZdcrll1cLhMph4-Jf=s288-c-no"
-                  alt=""
-                />
-              </a>
-            </div>
-            <p class="text-2xl font-bold mt-6 text-lg leading-8 text-gray-600">
-              Tri Jaya Prasetya
-            </p>
-            <h1
-              id="typewriter"
-              class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl"
-            ></h1>
-            <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="mailto:trijayaprasetya@gmail.com"
-                target="_blank"
-                class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Mail me
-              </a>
-              <a
-                href="https://www.linkedin.com/in/tri-jaya-prasetya/"
-                target="_blank"
-                class="text-sm font-semibold leading-6 text-gray-900"
-                >visit me on linkedIn <span aria-hidden="true">→</span></a
-              >
-            </div>
-          </div>
-        </div>
-        <div
-          class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-          aria-hidden="true"
-        >
-          <div
-            class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#3498db] to-[#9089fc] opacity-50 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-            style="
-              clip-path: polygon(
-                74.1% 44.1%,
-                100% 61.6%,
-                97.5% 26.9%,
-                85.5% 0.1%,
-                80.7% 2%,
-                72.5% 32.5%,
-                60.2% 62.4%,
-                52.4% 68.1%,
-                47.5% 58.3%,
-                45.2% 34.5%,
-                27.5% 76.7%,
-                0.1% 64.9%,
-                17.9% 100%,
-                27.6% 76.8%,
-                76.1% 97.7%,
-                74.1% 44.1%
-              );
-            "
-          ></div>
-        </div>
+      <button id="menuButton" class="rounded-2xl border border-white/10 bg-white/5 p-2 text-slate-200 md:hidden" aria-label="Open menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+
+      <div class="hidden items-center gap-7 text-sm font-semibold text-slate-300 md:flex">
+        <a href="#about" class="transition hover:text-cyan-300">About</a>
+        <a href="#expertise" class="transition hover:text-cyan-300">Expertise</a>
+        <a href="#experience" class="transition hover:text-cyan-300">Experience</a>
+        <a href="#projects" class="transition hover:text-cyan-300">Projects</a>
+        <a href="#contact" class="rounded-2xl bg-white px-5 py-2.5 text-slate-950 transition hover:bg-slate-200">Contact</a>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-slate-950/85 px-5 py-4 backdrop-blur-2xl md:hidden">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm font-semibold text-slate-300">
+        <a href="#about" class="rounded-xl px-3 py-2 hover:bg-white/10">About</a>
+        <a href="#expertise" class="rounded-xl px-3 py-2 hover:bg-white/10">Expertise</a>
+        <a href="#experience" class="rounded-xl px-3 py-2 hover:bg-white/10">Experience</a>
+        <a href="#projects" class="rounded-xl px-3 py-2 hover:bg-white/10">Projects</a>
+        <a href="#contact" class="rounded-xl px-3 py-2 hover:bg-white/10">Contact</a>
       </div>
     </div>
-  </body>
+  </header>
+
+  <main id="home" class="mx-auto max-w-7xl px-5 pb-16 pt-28 md:px-8 md:pt-32">
+    <!-- Hero -->
+    <section class="grid items-center gap-8 py-10 lg:grid-cols-[1.1fr_.9fr] lg:py-16">
+      <div>
+        <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl">
+          <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span>
+          Available for remote freelance & collaboration
+        </div>
+
+        <h1 class="max-w-4xl text-5xl font-black tracking-tight text-white md:text-7xl">
+          Tri Jaya<br />
+          <span class="text-gradient">Prasetya</span>
+        </h1>
+
+        <p class="mt-5 max-w-2xl text-lg font-semibold leading-8 text-slate-200 md:text-xl">
+          Developer <span class="text-cyan-300">|</span> System Analyst <span class="text-cyan-300">|</span> Server Engineer
+        </p>
+
+        <p id="typewriter" class="mt-4 min-h-[60px] max-w-2xl text-base leading-8 text-slate-300 md:text-lg"></p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="mailto:trijaya.prasetya@gmail.com" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:bg-slate-200">
+            Hire / Contact Me
+          </a>
+          <a href="https://github.com/JDevs-id" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/15">
+            View GitHub
+          </a>
+          <a href="#projects" class="inline-flex items-center justify-center rounded-2xl border border-cyan-300/25 bg-cyan-300/10 px-6 py-3 text-sm font-bold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-300/15">
+            See Projects
+          </a>
+        </div>
+      </div>
+
+      <aside class="glass-strong relative overflow-hidden rounded-[2rem] p-6 shadow-2xl shadow-cyan-950/40 md:p-8">
+        <div class="absolute right-[-40px] top-[-40px] h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl"></div>
+        <div class="absolute bottom-[-40px] left-[-40px] h-44 w-44 rounded-full bg-purple-400/20 blur-3xl"></div>
+        <div class="relative">
+          <div class="mx-auto flex h-40 w-40 items-center justify-center rounded-[2rem] border border-white/15 bg-white/10 p-2 shadow-glow animate-float">
+            <img src="https://avatars.githubusercontent.com/u/57583609" alt="Tri Jaya Prasetya" class="h-full w-full rounded-[1.6rem] object-cover" />
+          </div>
+          <div class="mt-6 text-center">
+            <p class="text-2xl font-extrabold">Tri Jaya Prasetya, S.Kom.</p>
+            <p class="mt-2 text-sm text-slate-300">Pekalongan, Central Java, Indonesia</p>
+          </div>
+
+          <div class="mt-7 grid grid-cols-2 gap-3">
+            <div class="rounded-3xl border border-white/10 bg-white/10 p-4 text-center">
+              <p class="text-3xl font-black text-cyan-200">6+</p>
+              <p class="mt-1 text-xs text-slate-300">Years IT Experience</p>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/10 p-4 text-center">
+              <p class="text-3xl font-black text-purple-200">3.91</p>
+              <p class="mt-1 text-xs text-slate-300">GPA / Cum Laude</p>
+            </div>
+          </div>
+
+          <div class="mt-5 rounded-3xl border border-white/10 bg-slate-950/30 p-4">
+            <p class="text-xs uppercase tracking-[.3em] text-slate-400">Core Focus</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="rounded-full bg-cyan-400/10 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-cyan-300/20">Laravel / PHP</span>
+              <span class="rounded-full bg-blue-400/10 px-3 py-1 text-xs font-semibold text-blue-100 ring-1 ring-blue-300/20">Linux Server</span>
+              <span class="rounded-full bg-purple-400/10 px-3 py-1 text-xs font-semibold text-purple-100 ring-1 ring-purple-300/20">System Analyst</span>
+              <span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-100 ring-1 ring-emerald-300/20">Network</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-12">
+      <div class="glass rounded-[2rem] p-6 md:p-10">
+        <div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr]">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">About Me</p>
+            <h2 class="mt-3 text-3xl font-black tracking-tight md:text-4xl">Professional System Analyst & University System Developer</h2>
+          </div>
+          <div class="space-y-5 text-sm leading-7 text-slate-300 md:text-base md:leading-8">
+            <p>
+              I am an IT professional focused on building practical digital systems, managing server infrastructure, and solving real operational problems through web-based applications. My work combines fullstack development, system analysis, Linux server management, network infrastructure, and hardware troubleshooting.
+            </p>
+            <p>
+              I currently support the University of Muhammadiyah Pekajangan Pekalongan through web application development, publication websites, internal systems, server/database management, network operations, and IT support. I enjoy turning complex institutional workflows into reliable, maintainable, and user-friendly systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="py-12">
+      <div class="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">Expertise</p>
+          <h2 class="mt-3 text-3xl font-black tracking-tight md:text-4xl">What I Do Best</h2>
+        </div>
+        <p class="max-w-2xl text-sm leading-7 text-slate-400">A practical mix of software engineering, server operations, networking, and system support for real production environments.</p>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/15 text-2xl">⌘</div>
+          <h3 class="text-xl font-extrabold">Fullstack Web Development</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">PHP, Laravel, CodeIgniter, database-driven systems, REST API, admin dashboards, and institutional web applications.</p>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-400/15 text-2xl">☁</div>
+          <h3 class="text-xl font-extrabold">Server Development & Management</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Linux server operations using Ubuntu, Fedora, CentOS, Apache, Nginx, database servers, public IP, SSL, and deployment workflows.</p>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-400/15 text-2xl">◎</div>
+          <h3 class="text-xl font-extrabold">System Analysis</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Requirement analysis, business process mapping, internal workflow digitization, testing, quality control, and user-focused implementation.</p>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-400/15 text-2xl">⇄</div>
+          <h3 class="text-xl font-extrabold">Network & Infrastructure</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Mikrotik routing, bandwidth management, local network design, public IP routing, port forwarding, and UniFi/Ubiquiti network monitoring.</p>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-400/15 text-2xl">⚙</div>
+          <h3 class="text-xl font-extrabold">Hardware & Troubleshooting</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Computer lab maintenance, hardware analysis, repair handling, specification planning, and IT procurement consideration.</p>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-400/15 text-2xl">◉</div>
+          <h3 class="text-xl font-extrabold">Video Conferencing & Streaming</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Managing online classes, seminars, public lectures, OBS workflows, audio/video input-output, and live streaming operations.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-12">
+      <div class="glass rounded-[2rem] p-6 md:p-10">
+        <div class="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-center">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">Tech Stack</p>
+            <h2 class="mt-3 text-3xl font-black tracking-tight md:text-4xl">Tools & Technologies</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-400">Technologies I commonly use across application development, server operations, network management, and digital systems.</p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">PHP</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Laravel</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">CodeIgniter</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">MySQL</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">REST API</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Flutter</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Firebase</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Linux</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Ubuntu</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">CentOS</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Fedora</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Apache</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Nginx</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">Mikrotik</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">UniFi / Ubiquiti</span>
+            <span class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold">OBS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-12">
+      <div class="mb-8">
+        <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">Experience</p>
+        <h2 class="mt-3 text-3xl font-black tracking-tight md:text-4xl">Professional Journey</h2>
+      </div>
+
+      <div class="glass rounded-[2rem] p-6 md:p-10">
+        <div class="space-y-9">
+          <div class="timeline-line relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-400 shadow-glow ring-8 ring-cyan-400/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">Information Technology Specialist</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">Universitas Muhammadiyah Pekajangan Pekalongan</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2023 — Present</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Analyze technology needs, computer specifications, IT expenditure, and future development potential with operational and ITIL-oriented considerations.</p>
+          </div>
+
+          <div class="timeline-line relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-blue-400 shadow-glow ring-8 ring-blue-400/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">Server Engineer</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">Universitas Muhammadiyah Pekajangan Pekalongan</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2022 — Present</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Manage local servers using Linux distributions including Fedora, CentOS, and Ubuntu. Build standalone database and web application servers with Apache/Nginx and public IP utilization.</p>
+          </div>
+
+          <div class="timeline-line relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-purple-400 shadow-glow ring-8 ring-purple-400/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">PHP Web Developer</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">Universitas Muhammadiyah Pekajangan Pekalongan</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2021 — Present</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Develop and maintain institutional web applications using PHP, CodeIgniter 3/4, Laravel, databases, and practical system design for internal workflow needs.</p>
+          </div>
+
+          <div class="timeline-line relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-400 shadow-glow ring-8 ring-emerald-400/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">Senior Network Engineer</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">Universitas Muhammadiyah Pekajangan Pekalongan</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2020 — Present</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Configure MikrotikOS routing, local network bandwidth management, open ports to local servers, and integrate UniFi/Ubiquiti for reliable modern WiFi monitoring and remote configuration.</p>
+          </div>
+
+          <div class="timeline-line relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-amber-400 shadow-glow ring-8 ring-amber-400/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">Hardware Software Specialist</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">Universitas Muhammadiyah Pekajangan Pekalongan</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2020 — Present</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Maintain computer labs, analyze hardware/software issues, support repair handling, and provide IT troubleshooting for academic and operational environments.</p>
+          </div>
+
+          <div class="timeline-line relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-rose-400 shadow-glow ring-8 ring-rose-400/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">Video Conferencing Engineer</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">Universitas Muhammadiyah Pekajangan Pekalongan</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2020 — Present</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Manage class meetings, public lectures, seminars, live streaming, OBS operation, and audio/video input-output workflows.</p>
+          </div>
+
+          <div class="timeline-line relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-slate-400 shadow-glow ring-8 ring-white/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">Co-Founder - Quality Control</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">PT. Berbagi Bintang Teknologi / IT Share Start Up</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2018</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Started as a remote intern working with SEO and WordPress, then appointed into the co-founder section to support quality control for business system development.</p>
+          </div>
+
+          <div class="relative pl-10">
+            <span class="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-slate-400 shadow-glow ring-8 ring-white/10"></span>
+            <div class="flex flex-col justify-between gap-2 md:flex-row md:items-start">
+              <div>
+                <h3 class="text-xl font-extrabold">Internship Trainee</h3>
+                <p class="mt-1 text-sm font-semibold text-cyan-200">Telkom Indonesia</p>
+              </div>
+              <p class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">2015</p>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Learned network application systems, wireless network structures, tools, monitoring, and digital mapping in Telkom Indonesia service center areas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-12">
+      <div class="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">Projects</p>
+          <h2 class="mt-3 text-3xl font-black tracking-tight md:text-4xl">Selected Works</h2>
+        </div>
+        <a href="https://github.com/JDevs-id" target="_blank" rel="noopener" class="inline-flex items-center text-sm font-bold text-cyan-200 hover:text-cyan-100">More on GitHub →</a>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <p class="text-xs font-bold uppercase tracking-[.28em] text-cyan-300">Publication Websites</p>
+          <h3 class="mt-4 text-xl font-extrabold">UMPP Publication Website</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Publication and institutional websites including main campus and unit websites.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full bg-white/10 px-3 py-1">umpp.ac.id</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">mbkm.umpp.ac.id</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">perpustakaan.umpp.ac.id</span>
+          </div>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <p class="text-xs font-bold uppercase tracking-[.28em] text-blue-300">Web Applications</p>
+          <h3 class="mt-4 text-xl font-extrabold">UMPP Internal Systems</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Internal audit quality assurance system, language and cooperation system, Baitul Arqom registration and assessment system, research management, lecturer services, and REST API.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full bg-white/10 px-3 py-1">PHP</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">Laravel</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">REST API</span>
+          </div>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <p class="text-xs font-bold uppercase tracking-[.28em] text-purple-300">Mobile Application</p>
+          <h3 class="mt-4 text-xl font-extrabold">Mushlihuun</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Android-based e-monitoring and supporting system for memorizing the Quran, developed as a bachelor's thesis project using Flutter and Firebase.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full bg-white/10 px-3 py-1">Flutter</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">Firebase</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">Mobile App</span>
+          </div>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <p class="text-xs font-bold uppercase tracking-[.28em] text-emerald-300">Published Apps</p>
+          <h3 class="mt-4 text-xl font-extrabold">Android Applications</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Published Flutter applications and community/organizational apps including Sipandawa and ThalUr: Thalassemia App.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full bg-white/10 px-3 py-1">Flutter</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">Play Store</span>
+          </div>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <p class="text-xs font-bold uppercase tracking-[.28em] text-amber-300">Websites</p>
+          <h3 class="mt-4 text-xl font-extrabold">Other Publication Websites</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Publication websites for organizations and educational institutions such as Kilau Muda Indonesia and Aljannah.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full bg-white/10 px-3 py-1">kilaumudaindonesia.or.id</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">aljannah.sch.id</span>
+          </div>
+        </article>
+
+        <article class="glass rounded-[1.7rem] p-6 transition hover:-translate-y-1 hover:bg-white/10">
+          <p class="text-xs font-bold uppercase tracking-[.28em] text-rose-300">Infrastructure</p>
+          <h3 class="mt-4 text-xl font-extrabold">Server & Network Operations</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Standalone server publishing, local-to-public routing, database server setup, campus WiFi monitoring, and operational troubleshooting.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full bg-white/10 px-3 py-1">Linux</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">Nginx</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">Mikrotik</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education & Credentials -->
+    <section class="py-12">
+      <div class="grid gap-5 lg:grid-cols-2">
+        <div class="glass rounded-[2rem] p-6 md:p-10">
+          <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">Education</p>
+          <div class="mt-8 space-y-7">
+            <div>
+              <h3 class="text-xl font-extrabold">Bachelor of Informatics Engineering</h3>
+              <p class="mt-1 text-sm font-semibold text-cyan-200">STMIK Widya Pratama Pekalongan</p>
+              <p class="mt-2 text-sm text-slate-400">2016 — 2020 · Graduated Cum Laude · GPA 3.91/4.00</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-extrabold">Computer Systems Networking and Telecommunications</h3>
+              <p class="mt-1 text-sm font-semibold text-cyan-200">Vocational High School of Muhammadiyah Kajen</p>
+              <p class="mt-2 text-sm text-slate-400">2012 — 2015</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-[2rem] p-6 md:p-10">
+          <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">Credentials</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl border border-white/10 bg-white/10 p-5">
+              <p class="text-3xl font-black text-cyan-200">3.91</p>
+              <p class="mt-2 text-sm font-bold">GPA / Cum Laude</p>
+              <p class="mt-1 text-xs leading-6 text-slate-400">Completed bachelor's degree in 7 semesters.</p>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/10 p-5">
+              <p class="text-3xl font-black text-purple-200">440</p>
+              <p class="mt-2 text-sm font-bold">TOEFL ITP Score</p>
+              <p class="mt-1 text-xs leading-6 text-slate-400">Certificate of expertise record.</p>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/10 p-5 sm:col-span-2">
+              <p class="text-3xl font-black text-emerald-200">CCNA 1–4</p>
+              <p class="mt-2 text-sm font-bold">Cisco Networking Coursework</p>
+              <p class="mt-1 text-xs leading-6 text-slate-400">Network fundamentals, routing, switching, and applied networking foundation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-12">
+      <div class="glass-strong relative overflow-hidden rounded-[2rem] p-6 text-center shadow-2xl md:p-12">
+        <div class="absolute right-[-60px] top-[-60px] h-56 w-56 rounded-full bg-cyan-400/20 blur-3xl"></div>
+        <div class="absolute bottom-[-60px] left-[-60px] h-56 w-56 rounded-full bg-purple-400/20 blur-3xl"></div>
+        <div class="relative">
+          <p class="text-sm font-bold uppercase tracking-[.35em] text-cyan-300">Contact</p>
+          <h2 class="mt-4 text-3xl font-black tracking-tight md:text-5xl">Let's Build Something Useful</h2>
+          <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 md:text-base md:leading-8">
+            Open for remote freelance work, Laravel/PHP development, VPS deployment, website maintenance, server support, and practical system development collaboration.
+          </p>
+
+          <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href="mailto:trijaya.prasetya@gmail.com" class="rounded-2xl bg-white px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-200">Email Me</a>
+            <a href="https://wa.me/628999711600" target="_blank" rel="noopener" class="rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/15">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/tri-jaya-prasetya/" target="_blank" rel="noopener" class="rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/15">LinkedIn</a>
+            <a href="https://stackoverflow.com/users/12355722/jdevs-id" target="_blank" rel="noopener" class="rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/15">Stack Overflow</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 px-5 py-8 md:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-slate-400 md:flex-row md:items-center">
+      <p>© <span id="year"></span> Tri Jaya Prasetya. All rights reserved.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="https://github.com/JDevs-id" target="_blank" rel="noopener" class="hover:text-cyan-200">GitHub</a>
+        <a href="https://www.linkedin.com/in/tri-jaya-prasetya/" target="_blank" rel="noopener" class="hover:text-cyan-200">LinkedIn</a>
+        <a href="mailto:trijaya.prasetya@gmail.com" class="hover:text-cyan-200">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuButton?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    const typeText = 'Life as Muslim | Tech Enthusiast | Fullstack Developer | System & Data Analyst | DevOps Engineer';
+    const typewriter = document.getElementById('typewriter');
+    let typeIndex = 0;
+
+    function typeLoop() {
+      if (!typewriter) return;
+      if (typeIndex <= typeText.length) {
+        typewriter.textContent = typeText.slice(0, typeIndex);
+        typeIndex++;
+        setTimeout(typeLoop, 48);
+      } else {
+        setTimeout(() => {
+          typeIndex = 0;
+          typewriter.textContent = '';
+          typeLoop();
+        }, 4500);
+      }
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    typeLoop();
+  </script>
+</body>
 </html>
