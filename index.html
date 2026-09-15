@@ -693,8 +693,15 @@
     // The English version is already this page, so selecting English only closes the dialog.
     document.querySelector('[data-language-en]')?.addEventListener('click', closeLanguageModal);
 
-    // Always show the language selector whenever index.html is accessed.
-    openLanguageModal();
+    // When coming from Arabic/Indonesian after choosing English, skip the
+    // language dialog once so the user does not have to choose twice.
+    const skipLanguageDialog = sessionStorage.getItem('skipLanguageDialog');
+    if (skipLanguageDialog === '1') {
+      sessionStorage.removeItem('skipLanguageDialog');
+    } else {
+      // Direct access/reload of index.html always opens the language selector.
+      openLanguageModal();
+    }
 
     const typeText = 'PHP & Laravel | React & Inertia.js | EduTech Systems | Data Analytics | React Native';
     const typewriter = document.getElementById('typewriter');
