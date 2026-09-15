@@ -690,14 +690,15 @@
       if (event.key === 'Escape') closeLanguageModal();
     });
 
-    // Show the language selector on the first visit; the visitor can reopen it from the header.
-    const languageChoice = localStorage.getItem('preferredLanguage');
-    if (!languageChoice) openLanguageModal();
+    // Arabic/Indonesian pages do not open the language selector automatically.
+    // It remains available from the header language button.
+    // When English is selected, mark the transition so index.html skips its dialog once.
     document.querySelectorAll('#languageModal a').forEach(link => {
       link.addEventListener('click', () => {
         const href = link.getAttribute('href');
-        const language = href === 'ar.html' ? 'ar' : href === 'id.html' ? 'id' : 'en';
-        localStorage.setItem('preferredLanguage', language);
+        if (href === 'index.html') {
+          sessionStorage.setItem('skipLanguageDialog', '1');
+        }
       });
     });
 
