@@ -647,7 +647,7 @@
           <span><strong class="block">العربية</strong><span class="text-xs text-slate-400">النسخة العربية · RTL</span></span><span class="text-lg">🇸🇦</span>
         </a>
         <a href="id.html" class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/10 px-4 py-4 transition hover:bg-white/15">
-          <span><strong class="block">Bahasa Indonesia</strong><span class="text-xs text-slate-400">Versi Bahasa Indonesia</span></span><span class="text-lg">🇮🇩</span>
+          <span><strong class="block">Bahasa</strong><span class="text-xs text-slate-400">Versi Bahasa Indonesia</span></span><span class="text-lg">🇮🇩</span>
         </a>
       </div>
     </div>
@@ -690,16 +690,9 @@
       if (event.key === 'Escape') closeLanguageModal();
     });
 
-    // Show the language selector on the first visit; the visitor can reopen it from the header.
-    const languageChoice = localStorage.getItem('preferredLanguage_v2');
-    if (!languageChoice) openLanguageModal();
-    document.querySelectorAll('#languageModal a').forEach(link => {
-      link.addEventListener('click', () => {
-        const href = link.getAttribute('href');
-        const language = href === 'ar.html' ? 'ar' : href === 'id.html' ? 'id' : 'en';
-        localStorage.setItem('preferredLanguage_v2', language);
-      });
-    });
+    // Always show the language selector whenever index.html is accessed.
+    // No localStorage is used here, so returning to index.html will show the dialog again.
+    openLanguageModal();
 
     const typeText = 'PHP & Laravel | React & Inertia.js | EduTech Systems | Data Analytics | React Native';
     const typewriter = document.getElementById('typewriter');
