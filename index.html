@@ -690,8 +690,10 @@
       if (event.key === 'Escape') closeLanguageModal();
     });
 
+    // The English version is already this page, so selecting English only closes the dialog.
+    document.querySelector('[data-language-en]')?.addEventListener('click', closeLanguageModal);
+
     // Always show the language selector whenever index.html is accessed.
-    // No localStorage is used here, so returning to index.html will show the dialog again.
     openLanguageModal();
 
     const typeText = 'PHP & Laravel | React & Inertia.js | EduTech Systems | Data Analytics | React Native';
